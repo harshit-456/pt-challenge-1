@@ -18,4 +18,15 @@ public class BookController {
   public List<Book> listBooks() { //method to List all Books(Feature-1)
     return bookService.getAllBooks();
   }
+
+  @PostMapping
+    public ResponseEntity<String> addBook(@RequestBody Book newBook) //method to Add book to library; (Feature-2)
+       {
+         boolean success = bookService.addBook(newBook);
+        if (success) {
+            return ResponseEntity.ok("Book added successfully");
+        } else {
+            return ResponseEntity.badRequest().body("Invalid book information");
+        }
+    }
 }

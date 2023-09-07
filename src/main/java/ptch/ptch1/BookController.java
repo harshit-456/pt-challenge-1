@@ -24,9 +24,9 @@ public class BookController {
        {
          boolean success = bookService.addBook(newBook);
         if (success) {
-            return ResponseEntity.ok("Book added successfully");
+            return ResponseEntity.ok("Book has been added successfully");
         } else {
-            return ResponseEntity.badRequest().body("Invalid book information");
+            return ResponseEntity.badRequest().body("Invalid book information. Book addition failed!");
         }
     }
 }

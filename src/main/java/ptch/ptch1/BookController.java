@@ -29,4 +29,14 @@ public class BookController {
             return ResponseEntity.badRequest().body("Invalid book information. Book addition failed!");
         }
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteBook(@PathVariable Long id) {
+        boolean success = bookService.deleteBook(id);
+        if (success) {
+            return ResponseEntity.ok("Book has been deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

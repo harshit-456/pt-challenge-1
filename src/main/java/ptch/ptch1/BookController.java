@@ -30,8 +30,8 @@ public class BookController {
         }
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteBook(@PathVariable int id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteBook(@PathVariable Long id) {
         boolean success = bookService.deleteBook(id);
         if (success) {
             return ResponseEntity.ok("Book has been deleted successfully");
